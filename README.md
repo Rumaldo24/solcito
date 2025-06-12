@@ -93,9 +93,6 @@ npm run dev          # Inicia el servidor de desarrollo
 # Producción
 npm run build        # Construye la aplicación para producción
 npm run preview      # Previsualiza la build de producción
-
-# Calidad de código
-npm run lint         # Ejecuta ESLint para revisar el código
 ```
 
 ## 📁 Estructura del Proyecto
@@ -242,9 +239,9 @@ Este proyecto está cubierto por una [Licencia de Uso No Comercial - Solcito](./
 
 ## 👨‍💻 Autor
 
-**Tu Nombre**
+**R. Rumaldo V.**
 - GitHub: [@Rumaldo24](https://github.com/Rumaldo24)
-- LinkedIn: [Tu Perfil](https://www.linkedin.com/in/rumaldo-riquelme20)
+- LinkedIn: [R. RUMALDO V.](https://www.linkedin.com/in/rumaldo-riquelme20)
 - Email: rumaldorv.11@outlook.com
 
 ## 🙏 Agradecimientos
