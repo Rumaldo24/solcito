@@ -60,7 +60,6 @@ function App() {
         isDark
           ? "bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"
           : "bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600"
-        // isDark ? "bg-neutral-900 text-white" : "bg-white !text-black"
       }`;
 
   const weatherAnimation = weatherAPI.currentWeather
@@ -85,6 +84,12 @@ function App() {
     }
   };
 
+  // Text colors based on theme
+  const headerTextColor = isDark ? "text-white" : "text-slate-900";
+  const subtitleTextColor = isDark ? "text-white/80" : "text-slate-900/90";
+  const welcomeTextColor = isDark ? "text-white/80" : "text-white/90";
+  const footerTextColor = isDark ? "text-white/60" : "text-slate-900";
+
   return (
     <div
       className={`${backgroundClass} ${weatherAnimation} relative overflow-x-hidden`}
@@ -106,10 +111,14 @@ function App() {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 pt-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in">
+            <h1
+              className={`text-4xl md:text-6xl font-bold ${headerTextColor} mb-4 animate-fade-in`}
+            >
               {translation.appTitle}
             </h1>
-            <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
+            <p
+              className={`${subtitleTextColor} text-lg md:text-xl max-w-2xl mx-auto`}
+            >
               {translation.appSubtitle}
             </p>
           </div>
@@ -183,7 +192,7 @@ function App() {
               !weatherAPI.loading &&
               !weatherAPI.error &&
               !geolocation.error && (
-                <div className="text-center text-white/80 py-12">
+                <div className={`text-center ${welcomeTextColor} py-12`}>
                   <p className="text-xl mb-4">{translation.welcome}</p>
                   <p>{translation.welcomeMessage}</p>
                 </div>
@@ -191,7 +200,7 @@ function App() {
           </div>
 
           {/* Footer */}
-          <footer className="text-center text-white/90 py-8 mt-12">
+          <footer className={`text-center ${footerTextColor} py-8 mt-12`}>
             <p className="text-sm">{translation.footerText}</p>
             <p className="text-sm">
               {translation.by}

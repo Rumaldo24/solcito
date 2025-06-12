@@ -16,8 +16,8 @@ export const useLanguage = () => {
     } else {
       // Detectar el idioma del navegador
       const browserLanguage = navigator.language.split('-')[0];
-      const supportedLanguage = ['es', 'en', 'fr', 'pt'].includes(browserLanguage) 
-        ? browserLanguage as SupportedLanguage 
+      const supportedLanguage = ['es', 'en', 'fr', 'pt'].includes(browserLanguage)
+        ? browserLanguage as SupportedLanguage
         : 'es';
       setCurrentLanguage(supportedLanguage);
       setTranslation(getTranslation(supportedLanguage));

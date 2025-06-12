@@ -29,7 +29,7 @@ export const formatDate = (timestamp: number, translation: Translation): string 
     translation.friday,
     translation.saturday
   ];
-  
+
   const monthNames = [
     translation.january,
     translation.february,
@@ -44,10 +44,10 @@ export const formatDate = (timestamp: number, translation: Translation): string 
     translation.november,
     translation.december
   ];
-  
+
   const dayName = dayNames[date.getDay()];
   const monthName = monthNames[date.getMonth()];
-  
+
   return `${dayName.slice(0, 3)} ${date.getDate()} ${monthName.slice(0, 3)}`;
 };
 
@@ -62,7 +62,7 @@ export const formatFullDate = (translation: Translation): string => {
     translation.friday,
     translation.saturday
   ];
-  
+
   const monthNames = [
     translation.january,
     translation.february,
@@ -77,16 +77,16 @@ export const formatFullDate = (translation: Translation): string => {
     translation.november,
     translation.december
   ];
-  
+
   const dayName = dayNames[date.getDay()];
   const monthName = monthNames[date.getMonth()];
-  
+
   return `${dayName}, ${date.getDate()} de ${monthName} de ${date.getFullYear()}`;
 };
 
 export const getWeatherBackground = (weatherMain: string, isDaytime: boolean): string => {
   const baseClasses = "min-h-screen transition-all duration-1000 ";
-  
+
   if (!isDaytime) {
     return baseClasses + "bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800";
   }
@@ -116,7 +116,7 @@ export const isDaytime = (currentTime: number, sunrise: number, sunset: number, 
   const localTime = currentTime + timezone;
   const localSunrise = sunrise + timezone;
   const localSunset = sunset + timezone;
-  
+
   return localTime >= localSunrise && localTime <= localSunset;
 };
 
@@ -135,7 +135,7 @@ export const getWeatherAnimation = (weatherMain: string): string => {
 };
 
 export const capitalizeWords = (str: string): string => {
-  return str.split(' ').map(word => 
+  return str.split(' ').map(word =>
     word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
   ).join(' ');
 };

@@ -22,7 +22,10 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
         : "bg-red-500/20 border-red-400/50"
     } shadow-xl max-w-md mx-auto text-center`;
 
-  const textClasses = isDark ? "text-white" : "text-white";
+  const textClasses = isDark ? "text-white" : "text-slate-900";
+  const buttonClasses = `flex items-center gap-2 px-6 py-3 bg-blue-500/20 hover:bg-blue-500/30 
+                        rounded-2xl border-2 border-blue-400/50 ${textClasses} font-medium
+                        transition-all duration-300 transform hover:scale-105`;
 
   return (
     <div className={cardClasses}>
@@ -40,9 +43,10 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
         {onRetry && (
           <button
             onClick={onRetry}
-            className="flex items-center gap-2 px-6 py-3 bg-blue-500/20 hover:bg-blue-500/30 
-                       rounded-2xl border-2 border-blue-400/50 text-white font-medium
-                       transition-all duration-300 transform hover:scale-105"
+            className={buttonClasses}
+            // className="flex items-center gap-2 px-6 py-3 bg-blue-500/20 hover:bg-blue-500/30 
+            //            rounded-2xl border-2 border-blue-400/50 text-white font-medium
+            //            transition-all duration-300 transform hover:scale-105"
           >
             <RefreshCw className="w-4 h-4" />
             {translation.tryAgain}

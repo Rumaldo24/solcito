@@ -3,8 +3,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { CurrentWeather, ForecastData, SearchHistoryItem } from '../types/weather';
 import { Translation } from '../i18n/translations';
 
-const API_KEY = '2612b2545082c7ac4977e80e26ddfb91'; // Users will need to add their own API key
-const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
+const BASE_URL = import.meta.env.VITE_OPENWEATHER_BASE_URL;
 
 interface WeatherState {
   currentWeather: CurrentWeather | null;
@@ -45,8 +45,8 @@ export const useWeatherAPI = (translation: Translation) => {
     };
 
     setSearchHistory(prev => {
-      const filtered = prev.filter(item => 
-        !(item.city.toLowerCase() === city.toLowerCase() && 
+      const filtered = prev.filter(item =>
+        !(item.city.toLowerCase() === city.toLowerCase() &&
           item.country.toLowerCase() === country.toLowerCase())
       );
       const newHistory = [newItem, ...filtered].slice(0, 10); // Keep only last 10 searches
@@ -55,15 +55,6 @@ export const useWeatherAPI = (translation: Translation) => {
     });
   }, []);
 
-  // const getErrorMessage = (error: any): string => {
-  //   if (error.message?.includes('404')) {
-  //     return translation.cityNotFound;
-  //   }
-  //   if (error.message?.includes('network') || error.message?.includes('fetch')) {
-  //     return translation.networkError;
-  //   }
-  //   return error.message || translation.networkError;
-  // };
   const getErrorMessage = (error: unknown): string => {
     if (typeof error === 'object' && error !== null && 'message' in error && typeof (error as { message: string }).message === 'string') {
       const message = (error as { message: string }).message;
